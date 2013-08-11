@@ -12,7 +12,7 @@ func usage() {
 }
 
 var enableEscapeChars = flag.Bool("e", false, "Enable escape characters")
-var omitNewline = flag.Bool("n", false, "don't print trailing newline")
+var omitNewline = flag.Bool("n", false, "Don't print trailing newline")
 var disableEscapeChars = flag.Bool("E", true, "Disable escape characters")
 
 func main() {
