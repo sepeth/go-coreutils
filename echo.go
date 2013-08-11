@@ -76,7 +76,7 @@ func main() {
 			ai++
 		}
 	}
-	fmt.Print(string(a[:ai]))
+	os.Stdout.WriteString(string(a[:ai]))
 	if *omitNewline == false {
 		fmt.Print("\n")
 	}
