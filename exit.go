@@ -2,7 +2,7 @@
 
 // This file should be built to run correctly.
 // Because it finds the parent pid to kill.
-// If you use `go run` the `go` will be the parent.
+// If you use `go run` the `go` will be the parent...
 
 package main
 
