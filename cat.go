@@ -14,23 +14,15 @@ var numberOutput = flag.Bool("n", false, "Number the output lines, starting at 1
 var squeezeEmptyLines = flag.Bool("s", false,
 	"Squeeze multiple adjacent empty lines, causing the output to be single spaced.")
 
-func openFile(s string) (f io.ReadWriteCloser, err error) {
+func openFile(s string) (io.ReadWriteCloser, error) {
 	fi, err := os.Stat(s)
 	if err != nil {
-		return
+		return nil, err
 	}
 	if fi.Mode()&os.ModeSocket != 0 {
-		f, err = net.Dial("unix", s)
-		if err != nil {
-			return
-		}
-	} else {
-		f, err = os.Open(s)
-		if err != nil {
-			return
-		}
+		return net.Dial("unix", s)
 	}
-	return
+	return os.Open(s)
 }
 
 func dumpLines(w io.Writer, r io.Reader) (n int64, err error) {
@@ -73,8 +65,8 @@ func main() {
 				fmt.Fprintln(os.Stderr, err)
 				continue
 			}
-			defer f.Close()
 			rcopy(os.Stdout, f)
+			f.Close()
 		}
 	}
 }
