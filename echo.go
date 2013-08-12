@@ -21,43 +21,34 @@ func main() {
 	a := []rune(concatenated)
 	length := len(a)
 	ai := 0
-	if (*enableEscapeChars == true || *disableEscapeChars == false) && length != 0 {
+	if length != 0 {
 		for i := 0; i < length; {
 			c := a[i]
 			i++
-			if c == '\\' && i < length {
+			if (*enableEscapeChars == true || *disableEscapeChars == false) && c == '\\' && i < length {
 				c = a[i]
 				i++
 				switch c {
 				case 'a':
 					c = '\a'
-					break
 				case 'b':
 					c = '\b'
-					break
 				case 'c':
 					os.Exit(0)
 				case 'e':
 					c = '\x1B'
-					break
 				case 'f':
 					c = '\f'
-					break
 				case 'n':
 					c = '\n'
-					break
 				case 'r':
 					c = '\r'
-					break
 				case 't':
 					c = '\t'
-					break
 				case 'v':
 					c = '\v'
-					break
 				case '\\':
 					c = '\\'
-					break
 				case 'x':
 					c = a[i]
 					i++
@@ -65,11 +56,10 @@ func main() {
 						hex := (c - '0')
 						c = a[i]
 						i++
-						if '9' >= c && c >= '0' && i < length {
+						if '9' >= c && c >= '0' && i <= length {
 							c = 16*(c-'0') + hex
 						}
 					}
-					break
 				}
 			}
 			a[ai] = c
