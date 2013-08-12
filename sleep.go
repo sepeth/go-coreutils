@@ -2,14 +2,13 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 	"strconv"
 	"time"
 )
 
 func usage() {
-	fmt.Println("Usage: sleep seconds")
+	os.Stderr.WriteString("Usage: sleep seconds")
 }
 
 func main() {
