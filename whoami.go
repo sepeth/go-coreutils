@@ -36,7 +36,7 @@ func main() {
 		return
 	}
 	current_user, err := user.Current()
-	if err == nil {
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
