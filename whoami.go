@@ -35,6 +35,10 @@ func main() {
 		fmt.Println(version_text)
 		return
 	}
-	current_user, _ := user.Current()
+	current_user, err := user.Current()
+	if err == nil {
+		fmt.Println(err)
+		return
+	}
 	fmt.Println(current_user.Username)
 }
