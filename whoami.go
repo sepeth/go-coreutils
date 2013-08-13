@@ -33,7 +33,7 @@ func main() {
 	}
 	current_user, err := user.Current()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(-1)
 	}
 	fmt.Println(current_user.Username)
