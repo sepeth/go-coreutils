@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"os/user"
 )
 
@@ -24,16 +25,17 @@ func main() {
 	flag.Parse()
 	if *help {
 		fmt.Println(help_text)
-		return
+		os.Exit(0)
 	}
 	if *version {
 		fmt.Println(version_text)
-		return
+		os.Exit(0)
 	}
 	current_user, err := user.Current()
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(-1)
 	}
 	fmt.Println(current_user.Username)
+	os.Exit(0)
 }
