@@ -83,5 +83,8 @@ func main() {
 	load := Load{}
 	load.Get()
 
-	fmt.Printf(" %s up %s load average: %.2f, %.2f, %.2f\n", time.Now().Format("15:04:05"), up.Format(), load.L1, load.L5, load.L15)
+	fmt.Printf(" %s up %s load average: %.2f, %.2f, %.2f\n",
+		time.Now().Format("15:04:05"),
+		up.Format(),
+		load.L1, load.L5, load.L15)
 }
