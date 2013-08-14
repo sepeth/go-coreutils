@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -10,7 +9,7 @@ import (
 )
 
 func usage() {
-	fmt.Println("Usage: sleep seconds")
+	os.Stderr.WriteString("Usage: sleep seconds")
 }
 
 func main() {
