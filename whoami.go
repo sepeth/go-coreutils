@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"os/user"
 )
@@ -33,8 +34,7 @@ func main() {
 	}
 	current_user, err := user.Current()
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(-1)
+		log.Fatalln(err)
 	}
 	fmt.Println(current_user.Username)
 	os.Exit(0)

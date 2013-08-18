@@ -4,13 +4,14 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
 func main() {
 	pwd, err := os.Getwd()
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		log.Fatalln(err)
 	} else {
 		fmt.Println(pwd)
 	}

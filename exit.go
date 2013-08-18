@@ -7,7 +7,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 )
 
@@ -17,7 +17,7 @@ var process = os.Getppid()
 func main() {
 	proc, err := os.FindProcess(process)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		log.Fatalln(err)
 	} else {
 		proc.Kill()
 	}
