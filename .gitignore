@@ -7,6 +7,10 @@
 _obj
 _test
 
+# Editor garbage
+.*sw[pon]
+\#*#
+
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
