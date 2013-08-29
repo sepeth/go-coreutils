@@ -8,7 +8,7 @@ import (
 )
 
 func usage() {
-	fmt.Println("Usage: echo [options] [string ...]")
+	fmt.Fprintln(os.Stderr, "Usage: echo [options] [string ...]")
 }
 
 var enableEscapeChars = flag.Bool("e", false, "Enable escape characters")
