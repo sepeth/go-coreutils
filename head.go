@@ -282,7 +282,7 @@ func main() {
 	} else {
 		for _, fname := range flag.Args() {
 			f, err := openFile(fname)
-			// fmt.Println(fname)
+			defer f.Close()
 			if err != nil {
 				fmt.Fprintln(os.Stderr, err)
 				continue
@@ -298,8 +298,6 @@ func main() {
 			} else {
 				readLines(lines, f, os.Stdout)
 			}
-
-			f.Close()
 		}
 	}
 }

@@ -61,12 +61,12 @@ func main() {
 			rcopy(os.Stdout, os.Stdin)
 		} else {
 			f, err := openFile(fname)
+			defer f.Close()
 			if err != nil {
 				fmt.Fprintln(os.Stderr, err)
 				continue
 			}
 			rcopy(os.Stdout, f)
-			f.Close()
 		}
 	}
 }
